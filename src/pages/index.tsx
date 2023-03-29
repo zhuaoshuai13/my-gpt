@@ -1,6 +1,13 @@
-import { HistoryChat } from "@/components";
+import { HistoryChat, RightChatBox,LeftChatBox } from "@/components";
+
+import Send from '@/src/asset/send.svg'
+
 
 export default function Home() {
+  const input = (e) =>{
+    console.log(e)
+  }
+
   return (
     <>
       <div className="flex h-screen w-screen">
@@ -12,22 +19,52 @@ export default function Home() {
           <div className="h-[50px] text-center text-[30px] leading-[50px] text-white">
             ChatGpt
           </div>
-          <div className="flex-1">
+          <div className="flex-1 overflow-scroll">
             {/* 没有内容 */}
-            <div className="relative h-full w-full">
-              <div className=" absolute left-0 right-0 top-0 bottom-0 m-auto h-fit w-fit text-[60px] text-white">
-                广告位招租
-              </div>
+            <div className="relative h-full w-4/5 m-auto">
+              {/* <div className=" absolute left-0 right-0 top-0 bottom-0 m-auto h-fit w-fit text-[60px] text-white">
+                广告位招租啊
+              </div> */}
+              <RightChatBox />
+              <LeftChatBox />
+              <RightChatBox />
+              <RightChatBox />
+              <LeftChatBox />
+              <RightChatBox />
+              <LeftChatBox />
+              <RightChatBox />
+              <LeftChatBox />
+              <RightChatBox />
+              <LeftChatBox />
+              <RightChatBox />
+              <LeftChatBox />
+              <RightChatBox />
+              <LeftChatBox />
+              <RightChatBox />
+              <LeftChatBox />
+              <RightChatBox />
+              <RightChatBox />
+              <RightChatBox />
+              <RightChatBox />
+              <RightChatBox />
+              <RightChatBox />
+              <RightChatBox />
+              <RightChatBox />
+              <RightChatBox />
+              <RightChatBox />
+              <RightChatBox />
+              <RightChatBox />
+              <RightChatBox />
+              <RightChatBox />
+
             </div>
           </div>
           <div className="m-aut0 w-full">
-            <div className="m-auto flex w-4/5">
-              <input
-                type="textarea"
-                className="block flex-1 rounded-[5px] border-none bg-black text-white outline-none"
-                placeholder="请输入内容"
-              />
-              <div className="text-white">发送</div>
+            <div className="m-auto flex w-[90%] items-center">
+              <textarea className="textarea w-full textarea-md text-white" placeholder="" 
+              onInput={input}
+              ></textarea>
+              <button className="btn btn-ghost"><Send /></button>
             </div>
           </div>
         </div>
