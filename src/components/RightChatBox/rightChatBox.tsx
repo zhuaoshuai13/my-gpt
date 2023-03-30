@@ -1,21 +1,21 @@
+import UserSvg from "@/asset/user.svg";
+
 const RightChatBox = () => {
   return (
     <div className="chat chat-end">
-      <div className="chat-image avatar">
-        <div className="w-10 rounded-full">
-          <img src="/images/stock/photo-1534528741775-53994a69daeb.jpg" />
+      <div className="chat-image avatar bg-[#dd6a6a] p-[4px]">
+        <div className="w-10 rounded-full bg-[#dd6a6a] text-white">
+          <UserSvg className="h-full w-full" />
         </div>
       </div>
       <div className="chat-header">
         Anakin
         <time className="text-xs opacity-50">12:46</time>
       </div>
-      <div className="chat-bubble">來點色圖</div>
-      <div className="chat-footer opacity-50">
-        Seen at 12:46
-      </div>
+      <div className="chat-bubble">帮帮我,帮帮我</div>
+      <div className="chat-footer opacity-50">Seen at 12:46</div>
     </div>
-  )
-}
+  );
+};
 
-export default RightChatBox
+export default RightChatBox;

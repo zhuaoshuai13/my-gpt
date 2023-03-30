@@ -1,13 +1,10 @@
-import { HistoryChat, RightChatBox,LeftChatBox } from "@/components";
+import { HistoryChat, RightChatBox, LeftChatBox } from "@/components";
+import UseResponse from "@/hooks/useResponse";
 
-import Send from '@/src/asset/send.svg'
-
+import Send from "@/src/asset/send.svg";
 
 export default function Home() {
-  const input = (e) =>{
-    console.log(e)
-  }
-
+  UseResponse();
   return (
     <>
       <div className="flex h-screen w-screen">
@@ -21,7 +18,7 @@ export default function Home() {
           </div>
           <div className="flex-1 overflow-scroll">
             {/* 没有内容 */}
-            <div className="relative h-full w-4/5 m-auto">
+            <div className="relative m-auto h-full w-4/5">
               {/* <div className=" absolute left-0 right-0 top-0 bottom-0 m-auto h-fit w-fit text-[60px] text-white">
                 广告位招租啊
               </div> */}
@@ -56,15 +53,18 @@ export default function Home() {
               <RightChatBox />
               <RightChatBox />
               <RightChatBox />
-
             </div>
           </div>
           <div className="m-aut0 w-full">
             <div className="m-auto flex w-[90%] items-center">
-              <textarea className="textarea w-full textarea-md text-white" placeholder="" 
-              onInput={input}
+              <textarea
+                className="textarea textarea-md w-full text-white"
+                placeholder=""
+                // onInput={input}
               ></textarea>
-              <button className="btn btn-ghost"><Send /></button>
+              <button className="btn-ghost btn">
+                <Send />
+              </button>
             </div>
           </div>
         </div>
