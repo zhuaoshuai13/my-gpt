@@ -19,12 +19,6 @@ const Input = (props: any) => {
     temp.push(info);
     props.getValue(temp);
     setMsgList(temp);
-    // ky.post("http://localhost:9527/chat", {
-    //   json: {
-    //     msg: info,
-    //   },
-    //   timeout: 100000,
-    // });
   };
 
   return (
