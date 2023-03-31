@@ -1,6 +1,6 @@
 import UserSvg from "@/asset/user.svg";
 
-const RightChatBox = () => {
+const RightChatBox = ({ info }: { info: string }) => {
   return (
     <div className="chat chat-end">
       <div className="chat-image avatar bg-[#dd6a6a] p-[4px]">
@@ -12,7 +12,7 @@ const RightChatBox = () => {
         Anakin
         <time className="text-xs opacity-50">12:46</time>
       </div>
-      <div className="chat-bubble">帮帮我,帮帮我</div>
+      <div className="chat-bubble">{info}</div>
       <div className="chat-footer opacity-50">Seen at 12:46</div>
     </div>
   );

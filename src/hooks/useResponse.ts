@@ -21,15 +21,13 @@ const UseResponse = () => {
       newInfo[key as MediaScreenKeysType] =
         width >= mediaScreens[key as MediaScreenKeysType];
     }
-    console.log(newInfo);
-
     setResponsive(newInfo);
   }, []);
   useEffect(() => {
     handleResize();
     window.addEventListener("resize", handleResize, false);
   }, [handleResize]);
-  return { handleResize };
+  return { responsive };
 };
 
 export default UseResponse;

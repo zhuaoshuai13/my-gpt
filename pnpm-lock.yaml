@@ -10,6 +10,7 @@ specifiers:
   daisyui: ^2.51.5
   eslint: 8.36.0
   eslint-config-next: 13.2.4
+  ky: ^0.33.3
   next: 13.2.4
   postcss: ^8.4.21
   prettier: ^2.8.5
@@ -29,6 +30,7 @@ dependencies:
   daisyui: registry.npmmirror.com/daisyui/2.51.5_j7yt3jd32cwenjqavrrga47yr4
   eslint: registry.npmmirror.com/eslint/8.36.0
   eslint-config-next: registry.npmmirror.com/eslint-config-next/13.2.4_j4766f7ecgqbon3u7zlxn5zszu
+  ky: registry.npmmirror.com/ky/0.33.3
   next: registry.npmmirror.com/next/13.2.4_biqbaboplfbrettd7655fr4n2y
   postcss: registry.npmmirror.com/postcss/8.4.21
   prettier: registry.npmmirror.com/prettier/2.8.5
@@ -4250,6 +4252,13 @@ packages:
     dependencies:
       array-includes: registry.npmmirror.com/array-includes/3.1.6
       object.assign: registry.npmmirror.com/object.assign/4.1.4
+    dev: false
+
+  registry.npmmirror.com/ky/0.33.3:
+    resolution: {integrity: sha512-CasD9OCEQSFIam2U8efFK81Yeg8vNMTBUqtMOHlrcWQHqUX3HeCl9Dr31u4toV7emlH8Mymk5+9p0lL6mKb/Xw==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/ky/-/ky-0.33.3.tgz}
+    name: ky
+    version: 0.33.3
+    engines: {node: '>=14.16'}
     dev: false
 
   registry.npmmirror.com/language-subtag-registry/0.3.22:
