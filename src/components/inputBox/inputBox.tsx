@@ -1,4 +1,4 @@
-import ky from "ky";
+// import ky from "ky";
 
 import Send from "@/src/asset/send.svg";
 import { useState } from "react";
