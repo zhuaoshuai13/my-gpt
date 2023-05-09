@@ -13,7 +13,7 @@ const RightChatBox = ({ info }: { info: string }) => {
         <time className="text-xs opacity-50">12:46</time>
       </div>
       <div className="chat-bubble">{info}</div>
-      <div className="chat-footer opacity-50">Seen at 12:46</div>
+      <div className="chat-footer opacity-50">Seen at 12:45</div>
     </div>
   );
 };
