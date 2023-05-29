@@ -1,23 +1,29 @@
+import { useRef } from "react";
+
 import { RightChatBox, LeftChatBox, InputBox } from "@/components";
-import { useState } from "react";
+import UseContentBox from "@/hooks/useContentBox";
 
 const ContentBox = () => {
-  const [msgList, setMsgList] = useState<Array<string>>([]);
+  const scrollContainerRef = useRef(null);
+  const { msgList, handleChildValue } = UseContentBox(scrollContainerRef);
 
-  const handleChildValue = (value: []) => {
-    setMsgList([...value]);
-  };
   return (
     <div className="flex flex-1 flex-col bg-[#444655] py-[20px]">
       <div className="h-[50px] text-center text-[30px] leading-[50px] text-white">
         Chat
       </div>
-      <div className="flex-1 overflow-scroll">
+      <div
+        className="flex-1 overflow-scroll scroll-smooth"
+        ref={scrollContainerRef}
+      >
         <div className="relative m-auto h-full w-4/5">
-          <LeftChatBox />
-          {msgList.map((item) => (
-            <RightChatBox info={item} key={item} />
-          ))}
+          {msgList.map((item, index) =>
+            index % 2 === 0 ? (
+              <RightChatBox info={item} key={index} />
+            ) : (
+              <LeftChatBox info={item} key={index} />
+            )
+          )}
         </div>
       </div>
       <InputBox getValue={handleChildValue} />

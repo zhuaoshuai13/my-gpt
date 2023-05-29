@@ -2,7 +2,7 @@ import UserSvg from "@/asset/user.svg";
 
 const RightChatBox = ({ info }: { info: string }) => {
   return (
-    <div className="chat chat-end animate-textIn">
+    <div className="chat chat-end animate-textFromRight">
       <div className="chat-image avatar bg-[#dd6a6a] p-[4px]">
         <div className="w-10 rounded-full bg-[#dd6a6a] text-white">
           <UserSvg className="h-full w-full" />

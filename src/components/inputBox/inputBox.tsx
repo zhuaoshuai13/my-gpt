@@ -1,4 +1,4 @@
-// import ky from "ky";
+import ky from "ky";
 
 import Send from "@/src/asset/send.svg";
 import { useState } from "react";
@@ -20,12 +20,24 @@ const Input = (props: { getValue: Function }) => {
     setMsgList(newMsgArray);
     setInfo("");
 
-    // ky.post("http://localhost:9527/chat", {
-    //   json: {
-    //     msg: info,
-    //   },
-    //   timeout: 100000,
-    // });
+    const res = ky
+      .post("http://112.74.109.58:9557/chat", {
+        json: {
+          msg: JSON.stringify(info),
+        },
+        timeout: 100000,
+      })
+      .json();
+    res.then((data) => {
+      const newBackMsgArray = [...newMsgArray, data as string];
+      const sleep = (time: number): Promise<unknown> => {
+        return new Promise((resolve) => setTimeout(resolve, time));
+      };
+      sleep(500).then(() => {
+        props.getValue(newBackMsgArray);
+        setMsgList(newBackMsgArray);
+      });
+    });
   };
 
   return (
