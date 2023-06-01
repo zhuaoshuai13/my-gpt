@@ -21,7 +21,7 @@ const Input = (props: { getValue: Function }) => {
     setInfo("");
 
     const res = ky
-      .post("http://112.74.109.58:8080/chat", {
+      .post("https://gpt.zhuaoshuai.com/chat", {
         json: {
           msg: JSON.stringify(info),
         },
