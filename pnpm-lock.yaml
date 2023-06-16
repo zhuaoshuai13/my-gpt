@@ -7,7 +7,7 @@ specifiers:
   '@types/react': 18.0.28
   '@types/react-dom': 18.0.11
   autoprefixer: ^10.4.14
-  daisyui: ^2.51.5
+  daisyui: 3.1.0
   eslint: 8.36.0
   eslint-config-next: 13.2.4
   ky: ^0.33.3
@@ -27,7 +27,7 @@ dependencies:
   '@types/react': registry.npmmirror.com/@types/react/18.0.28
   '@types/react-dom': registry.npmmirror.com/@types/react-dom/18.0.11
   autoprefixer: registry.npmmirror.com/autoprefixer/10.4.14_postcss@8.4.21
-  daisyui: registry.npmmirror.com/daisyui/2.51.5_j7yt3jd32cwenjqavrrga47yr4
+  daisyui: registry.npmmirror.com/daisyui/3.1.0_postcss@8.4.21
   eslint: registry.npmmirror.com/eslint/8.36.0
   eslint-config-next: registry.npmmirror.com/eslint-config-next/13.2.4_j4766f7ecgqbon3u7zlxn5zszu
   ky: registry.npmmirror.com/ky/0.33.3
@@ -2717,23 +2717,10 @@ packages:
     version: 1.1.4
     dev: false
 
-  registry.npmmirror.com/color-string/1.9.1:
-    resolution: {integrity: sha512-shrVawQFojnZv6xM40anx4CkoDP+fZsw/ZerEMsW/pyzsRbElpsL/DBVW7q3ExxwusdNXI3lXpuhEZkzs8p5Eg==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/color-string/-/color-string-1.9.1.tgz}
-    name: color-string
-    version: 1.9.1
-    dependencies:
-      color-name: registry.npmmirror.com/color-name/1.1.4
-      simple-swizzle: registry.npmmirror.com/simple-swizzle/0.2.2
-    dev: false
-
-  registry.npmmirror.com/color/4.2.3:
-    resolution: {integrity: sha512-1rXeuUUiGGrykh+CeBdu5Ie7OJwinCgQY0bc7GCRxy5xVHy+moaqkpL/jqQq0MtQOeYcrqEz4abc5f0KtU7W4A==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/color/-/color-4.2.3.tgz}
-    name: color
-    version: 4.2.3
-    engines: {node: '>=12.5.0'}
-    dependencies:
-      color-convert: registry.npmmirror.com/color-convert/2.0.1
-      color-string: registry.npmmirror.com/color-string/1.9.1
+  registry.npmmirror.com/colord/2.9.3:
+    resolution: {integrity: sha512-jeC1axXpnb0/2nn/Y1LPuLdgXBLH7aDcHu4KEKfqw3CUhX7ZpfBSlPKyqXE6btIgEzfWtrX3/tyBCaCvXvMkOw==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/colord/-/colord-2.9.3.tgz}
+    name: colord
+    version: 2.9.3
     dev: false
 
   registry.npmmirror.com/commander/7.2.0:
@@ -2857,17 +2844,16 @@ packages:
     version: 3.1.1
     dev: false
 
-  registry.npmmirror.com/daisyui/2.51.5_j7yt3jd32cwenjqavrrga47yr4:
-    resolution: {integrity: sha512-L05dRw0tasmz2Ha+10LhftEGLq4kaA8vRR/T0wDaXfHwqcgsf81jfXDJ6NlZ63Z7Rl1k3rj7UHs0l0p7CM3aYA==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/daisyui/-/daisyui-2.51.5.tgz}
-    id: registry.npmmirror.com/daisyui/2.51.5
+  registry.npmmirror.com/daisyui/3.1.0_postcss@8.4.21:
+    resolution: {integrity: sha512-G4dz/bRZVvlhQ/FtezXSg0rXOXzDJ0PcnMqeLSwCYNWXxf46fNJ8LWeV5qwsYOdJbXiXoZLnwyy+BsNoWZ+Bjg==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/daisyui/-/daisyui-3.1.0.tgz}
+    id: registry.npmmirror.com/daisyui/3.1.0
     name: daisyui
-    version: 2.51.5
+    version: 3.1.0
+    engines: {node: '>=16.9.0'}
     peerDependencies:
-      autoprefixer: ^10.0.2
-      postcss: ^8.1.6
+      postcss: ^8
     dependencies:
-      autoprefixer: registry.npmmirror.com/autoprefixer/10.4.14_postcss@8.4.21
-      color: registry.npmmirror.com/color/4.2.3
+      colord: registry.npmmirror.com/colord/2.9.3
       css-selector-tokenizer: registry.npmmirror.com/css-selector-tokenizer/0.8.0
       postcss: registry.npmmirror.com/postcss/8.4.21
       postcss-js: registry.npmmirror.com/postcss-js/4.0.1_postcss@8.4.21
@@ -3955,12 +3941,6 @@ packages:
     resolution: {integrity: sha512-zz06S8t0ozoDXMG+ube26zeCTNXcKIPJZJi8hBrF4idCLms4CG9QtK7qBl1boi5ODzFpjswb5JPmHCbMpjaYzg==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/is-arrayish/-/is-arrayish-0.2.1.tgz}
     name: is-arrayish
     version: 0.2.1
-    dev: false
-
-  registry.npmmirror.com/is-arrayish/0.3.2:
-    resolution: {integrity: sha512-eVRqCvVlZbuw3GrM63ovNSNAeA1K16kaR/LRY/92w0zxQ5/1YzwblUX652i4Xs9RwAGjW9d9y6X88t8OaAJfWQ==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/is-arrayish/-/is-arrayish-0.3.2.tgz}
-    name: is-arrayish
-    version: 0.3.2
     dev: false
 
   registry.npmmirror.com/is-bigint/1.0.4:
@@ -5156,14 +5136,6 @@ packages:
       call-bind: registry.npmmirror.com/call-bind/1.0.2
       get-intrinsic: registry.npmmirror.com/get-intrinsic/1.2.0
       object-inspect: registry.npmmirror.com/object-inspect/1.12.3
-    dev: false
-
-  registry.npmmirror.com/simple-swizzle/0.2.2:
-    resolution: {integrity: sha512-JA//kQgZtbuY83m+xT+tXJkmJncGMTFT+C+g2h2R9uxkYIrE2yy9sgmcLhCnw57/WSD+Eh3J97FPEDFnbXnDUg==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/simple-swizzle/-/simple-swizzle-0.2.2.tgz}
-    name: simple-swizzle
-    version: 0.2.2
-    dependencies:
-      is-arrayish: registry.npmmirror.com/is-arrayish/0.3.2
     dev: false
 
   registry.npmmirror.com/slash/3.0.0:
