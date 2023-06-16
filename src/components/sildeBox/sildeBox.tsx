@@ -9,7 +9,7 @@ const SildeBox = () => {
     <>
       {responsive?.md ? (
         <div className="w-[260px] bg-black p-[5px]">
-          <HistoryChat info="test" />
+          <HistoryChat info="testbranch" />
           <HistoryChat info="啊啊啊" />
         </div>
       ) : null}
