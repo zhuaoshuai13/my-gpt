@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useImperativeHandle } from "react";
 
 import UseResponse from "@/hooks/useResponse";
 
@@ -6,10 +6,16 @@ import { HistoryChat } from "@/components";
 import CloseSVG from "@/src/asset/close.svg";
 import MenuSVG from "@/src/asset/menu.svg";
 
-const SildeBox = () => {
+const SildeBox = (prop: any) => {
   const { responsive } = UseResponse();
-  const [showSidebar, setShowSidebar] = useState(true);
+  const [showSidebar, setShowSidebar] = useState(false);
+  const [menuBtn, setMenuBtn] = useState(false);
   const sideBarStyle = showSidebar ? "w-[230px] p-[12px]" : "w-[0] p-[0]";
+
+  useImperativeHandle(prop.cRef, () => ({
+    setShowSidebar: setShowSidebar,
+    setMenuBtn: setMenuBtn,
+  }));
 
   return (
     <>
@@ -25,27 +31,45 @@ const SildeBox = () => {
             >
               我的问题
             </div>
-            <div
-              className={`absolute h-[100%] ${
-                showSidebar ? "right-0" : "right-[-30px] top-[12px]"
-              }`}
-            >
-              <label className="swap swap-rotate ">
-                <input
-                  type="checkbox"
-                  onClick={() => {
-                    setShowSidebar(!showSidebar);
-                  }}
-                />
-                <CloseSVG className="swap-on fill-current delay-[140ms]" />
-                <MenuSVG className="swap-off fill-current delay-[140ms]" />
-              </label>
-            </div>
+            {menuBtn && (
+              <div
+                className={`absolute h-[100%] ${
+                  showSidebar ? "right-0" : "right-[-30px] top-[12px]"
+                }`}
+              >
+                <label className="swap-rotate swap ">
+                  <input
+                    type="checkbox"
+                    onClick={() => {
+                      setShowSidebar(!showSidebar);
+                    }}
+                  />
+                  <CloseSVG className="swap-off fill-current delay-[140ms]" />
+                  <MenuSVG className="swap-on fill-current delay-[140ms]" />
+                </label>
+              </div>
+            )}
           </div>
 
           <div className="scrollbar my-[14px] box-border w-[100%] flex-1 overflow-y-scroll">
             <HistoryChat info="test" />
             <HistoryChat info="啊啊啊啊啊啊啊啊啊啊" />
+            <HistoryChat info="啊啊啊啊啊啊啊啊啊啊" />
+            <HistoryChat info="啊啊啊啊啊啊啊啊啊啊" />
+            <HistoryChat info="啊啊啊啊啊啊啊啊啊啊" />
+            <HistoryChat info="啊啊啊啊啊啊啊啊啊啊" />
+            <HistoryChat info="啊啊啊啊啊啊啊啊啊啊" />
+            <HistoryChat info="啊啊啊啊啊啊啊啊啊啊" />
+            <HistoryChat info="啊啊啊啊啊啊啊啊啊啊" />
+            <HistoryChat info="啊啊啊啊啊啊啊啊啊啊" />
+            <HistoryChat info="啊啊啊啊啊啊啊啊啊啊" />
+            <HistoryChat info="啊啊啊啊啊啊啊啊啊啊" />
+            <HistoryChat info="啊啊啊啊啊啊啊啊啊啊" />
+            <HistoryChat info="啊啊啊啊啊啊啊啊啊啊" />
+            <HistoryChat info="啊啊啊啊啊啊啊啊啊啊" />
+            <HistoryChat info="啊啊啊啊啊啊啊啊啊啊" />
+            <HistoryChat info="啊啊啊啊啊啊啊啊啊啊" />
+            <div className="pointer-events-none sticky bottom-0 flex h-40 bg-[#000] [mask-image:linear-gradient(transparent,#000000)]"></div>
           </div>
 
           <div className="top w-[100%] overflow-hidden">

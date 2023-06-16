@@ -41,19 +41,17 @@ const Input = (props: { getValue: Function }) => {
   };
 
   return (
-    <div className="m-aut0 w-full">
-      <div className="m-auto flex w-[90%] items-center pt-2">
-        <textarea
-          className="textarea textarea-md mr-3 w-full text-white"
-          placeholder=""
-          onInput={handleInput}
-          value={info}
-        ></textarea>
-        <button className="btn-ghost btn text-white" onClick={click}>
-          <Send />
-          <span className="ml-1">发送</span>
-        </button>
-      </div>
+    <div className="m-auto flex w-[90%] items-center pt-2">
+      <textarea
+        className="textarea textarea-md mr-3 w-full text-white"
+        placeholder=""
+        onInput={handleInput}
+        value={info}
+      ></textarea>
+      <button className="btn-ghost btn text-white" onClick={click}>
+        <Send />
+        <span className="ml-1">发送</span>
+      </button>
     </div>
   );
 };
