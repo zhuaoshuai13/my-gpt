@@ -13,7 +13,7 @@ const ContentBox = () => {
         Chat
       </div>
       <div
-        className="flex-1 overflow-scroll scroll-smooth"
+        className="scrollbar flex-1 overflow-scroll scroll-smooth"
         ref={scrollContainerRef}
       >
         <div className="relative m-auto h-full w-4/5">
