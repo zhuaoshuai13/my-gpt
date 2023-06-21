@@ -1,7 +1,9 @@
-import { useRef, useState, useImperativeHandle } from "react";
+import { useRef, useState } from "react";
 
 import { RightChatBox, LeftChatBox, InputBox } from "@/components";
 import UseContentBox from "@/hooks/useContentBox";
+
+import LoadingSVG from "@/asset/loading.svg";
 
 const ContentBox = (prop: any) => {
   const scrollContainerRef = useRef(null);
@@ -62,6 +64,17 @@ const ContentBox = (prop: any) => {
                 <LeftChatBox info={item} key={index} />
               )
             )}
+            {/* <button
+              type="button"
+              className="... bg-indigo-500 p-[10px]"
+              disabled
+            >
+              <div>
+                <LoadingSVG className="-ml-1 mr-3 h-5 w-5 animate-spin text-white" />
+              </div>
+              <div className="text-white">稍等...</div>
+            </button> */}
+            {/* <LoadingSVG className="h-9 w-9 animate-spin text-white" /> */}
           </div>
         )}
       </div>

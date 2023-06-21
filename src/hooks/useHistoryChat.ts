@@ -9,6 +9,7 @@ const UseHistoryChat = () => {
   const handleCancleDelete = () => {
     setIsDel(false);
   };
+
   return { isDel, handleDelete, handleCancleDelete };
 };
 

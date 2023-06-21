@@ -1,3 +1,5 @@
+import { getNowTime } from "@/utils/utils";
+
 import UserSvg from "@/asset/user.svg";
 
 const RightChatBox = ({ info }: { info: string }) => {
@@ -8,12 +10,11 @@ const RightChatBox = ({ info }: { info: string }) => {
           <UserSvg className="h-full w-full" />
         </div>
       </div>
-      <div className="chat-header">
-        Anakin
-        <time className="text-xs opacity-50">12:46</time>
+      <div className="chat-header text-white opacity-80">User</div>
+      <div className="chat-bubble text-white">{info}</div>
+      <div className="chat-footer text-white opacity-80">
+        Seen at {getNowTime()}
       </div>
-      <div className="chat-bubble">{info}</div>
-      <div className="chat-footer opacity-50">Seen at 12:45</div>
     </div>
   );
 };

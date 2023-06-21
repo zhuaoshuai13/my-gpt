@@ -1,3 +1,5 @@
+import { getNowTime } from "@/utils/utils";
+
 import Roboat from "@/asset/roboat.svg";
 
 const LeftChatBox = ({ info }: { info: string }) => {
@@ -8,12 +10,11 @@ const LeftChatBox = ({ info }: { info: string }) => {
           <Roboat />
         </div>
       </div>
-      <div className="chat-header">
-        Roboat
-        <time className="text-xs opacity-50">12:45</time>
+      <div className="chat-header text-white opacity-80">Chat AI</div>
+      <div className="chat-bubble text-white">{info}</div>
+      <div className="chat-footer text-white opacity-80">
+        Seen at {getNowTime()}
       </div>
-      <div className="chat-bubble">{info}</div>
-      <div className="chat-footer opacity-50">Seen at 12:46</div>
     </div>
   );
 };
