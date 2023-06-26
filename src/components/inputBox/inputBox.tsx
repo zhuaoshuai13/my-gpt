@@ -3,6 +3,15 @@ import ky from "ky";
 import Send from "@/src/asset/send.svg";
 import { useState } from "react";
 
+interface BackMessageType {
+  message: string;
+  code: number;
+  data: {
+    role: string;
+    content: string;
+  };
+}
+
 const Input = (props: { getValue: Function }) => {
   const [msgList, setMsgList] = useState<Array<string>>([]);
 
@@ -21,15 +30,18 @@ const Input = (props: { getValue: Function }) => {
     setInfo("");
 
     const res = ky
-      .post("https://gpt.zhuaoshuai.com/chat", {
+      .post("https://chat.jetbrains.page/chat", {
         json: {
-          msg: JSON.stringify(info),
+          role: "user",
+          content: info,
         },
         timeout: 100000,
       })
       .json();
-    res.then((data) => {
-      const newBackMsgArray = [...newMsgArray, data as string];
+    res.then((data: any) => {
+      if (data.message !== "success") return;
+      const backMsg = data.data.content;
+      const newBackMsgArray = [...newMsgArray, backMsg as string];
       const sleep = (time: number): Promise<unknown> => {
         return new Promise((resolve) => setTimeout(resolve, time));
       };
