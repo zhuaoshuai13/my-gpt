@@ -55,23 +55,8 @@ const SildeBox = (prop: any) => {
             </div>
 
             <div className="scrollbar my-[14px] box-border w-[100%] flex-1 overflow-y-scroll">
-              <HistoryChat info="test" />
-              <HistoryChat info="啊啊啊啊啊啊啊啊啊啊" />
-              <HistoryChat info="啊啊啊啊啊啊啊啊啊啊" />
-              <HistoryChat info="啊啊啊啊啊啊啊啊啊啊" />
-              <HistoryChat info="啊啊啊啊啊啊啊啊啊啊" />
-              <HistoryChat info="啊啊啊啊啊啊啊啊啊啊" />
-              <HistoryChat info="啊啊啊啊啊啊啊啊啊啊" />
-              <HistoryChat info="啊啊啊啊啊啊啊啊啊啊" />
-              <HistoryChat info="啊啊啊啊啊啊啊啊啊啊" />
-              <HistoryChat info="啊啊啊啊啊啊啊啊啊啊" />
-              <HistoryChat info="啊啊啊啊啊啊啊啊啊啊" />
-              <HistoryChat info="啊啊啊啊啊啊啊啊啊啊" />
-              <HistoryChat info="啊啊啊啊啊啊啊啊啊啊" />
-              <HistoryChat info="啊啊啊啊啊啊啊啊啊啊" />
-              <HistoryChat info="啊啊啊啊啊啊啊啊啊啊" />
-              <HistoryChat info="啊啊啊啊啊啊啊啊啊啊" />
-              <HistoryChat info="啊啊啊啊啊啊啊啊啊啊" />
+              <HistoryChat info="历史对话" />
+              <HistoryChat info="正在开发中..." />
               <div className="pointer-events-none sticky bottom-0 flex h-40 bg-[#000] [mask-image:linear-gradient(transparent,#000000)]"></div>
             </div>
 

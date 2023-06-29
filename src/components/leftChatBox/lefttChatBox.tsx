@@ -12,6 +12,10 @@ const LeftChatBox = ({ info }: { info: string }) => {
       </div>
       <div className="chat-header text-white opacity-80">Chat AI</div>
       <div className="chat-bubble text-white">{info}</div>
+      <div
+        className="chat-bubble text-white"
+        dangerouslySetInnerHTML={{ __html: info.replace(/\n/g, "<br/>") }}
+      />
       <div className="chat-footer text-white opacity-80">
         Seen at {getNowTime()}
       </div>
