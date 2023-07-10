@@ -5,3 +5,7 @@ export const getNowTime = () => {
   const minutes = date.getMinutes();
   return `${hours}:${minutes < 10 ? `0${minutes}` : minutes}`;
 };
+
+export const sleep = (time: number): Promise<unknown> => {
+  return new Promise((resolve) => setTimeout(resolve, time));
+};
