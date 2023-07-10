@@ -1,15 +1,23 @@
-import { useRef, useState } from "react";
+import { useRef, useState, useEffect } from "react";
 
 import { RightChatBox, LeftChatBox, InputBox } from "@/components";
 import UseContentBox from "@/hooks/useContentBox";
 
-import LoadingSVG from "@/asset/loading.svg";
+// import LoadingSVG from "@/asset/loading.svg";
 
 const ContentBox = (prop: any) => {
   const scrollContainerRef = useRef(null);
   const { msgList, handleChildValue } = UseContentBox(scrollContainerRef);
   const [showHero, setShowHero] = useState(true);
   const [hideHero, setHideHero] = useState(false);
+
+  useEffect(() => {
+    if (localStorage.getItem("isEnter") === "true") {
+      setShowHero(false);
+      prop.sideProp.current.setShowSidebar(true);
+      prop.sideProp.current.setMenuBtn(true);
+    }
+  }, [prop.sideProp]);
 
   return (
     <div className="flex flex-1 flex-col bg-[#444655]">
@@ -21,7 +29,7 @@ const ContentBox = (prop: any) => {
         Chat
       </div>
       <div
-        className="scrollbar flex-1 overflow-scroll scroll-smooth bg-base-200"
+        className="scrollbar content flex-1 overflow-scroll scroll-smooth bg-base-200"
         ref={scrollContainerRef}
       >
         {!hideHero && (
@@ -44,6 +52,7 @@ const ContentBox = (prop: any) => {
                   className={`transiton- btn-primary btn`}
                   onClick={() => {
                     setShowHero(!showHero);
+                    localStorage.setItem("isEnter", "true");
                     prop.sideProp.current.setShowSidebar(true);
                     prop.sideProp.current.setMenuBtn(true);
                     setTimeout(() => setHideHero(true), 1500);
@@ -58,10 +67,10 @@ const ContentBox = (prop: any) => {
         {!showHero && (
           <div className="relative m-auto h-full w-4/5">
             {msgList.map((item, index) =>
-              index % 2 === 0 ? (
-                <RightChatBox info={item} key={index} />
+              item.role === "user" ? (
+                <RightChatBox info={item.content} key={index} />
               ) : (
-                <LeftChatBox info={item} key={index} />
+                <LeftChatBox info={item.content} key={index} />
               )
             )}
             {/* <button

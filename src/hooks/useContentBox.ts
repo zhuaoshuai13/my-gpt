@@ -8,7 +8,9 @@ const scrollToBottom = (scrollContainerRef: MutableRefObject<null>) => {
   }
 };
 const UseContentBox = (scrollContainerRef: MutableRefObject<null>) => {
-  const [msgList, setMsgList] = useState<Array<string>>([]);
+  const [msgList, setMsgList] = useState<
+    Array<{ role: string; content: string }>
+  >([]);
 
   const handleChildValue = (value: []) => {
     setMsgList([...value]);

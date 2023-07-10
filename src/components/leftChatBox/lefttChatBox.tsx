@@ -1,3 +1,4 @@
+import MarkDown from "../markDown/markDown";
 import { getNowTime } from "@/utils/utils";
 
 import Roboat from "@/asset/roboat.svg";
@@ -11,11 +12,9 @@ const LeftChatBox = ({ info }: { info: string }) => {
         </div>
       </div>
       <div className="chat-header text-white opacity-80">Chat AI</div>
-      <div className="chat-bubble text-white">{info}</div>
-      <div
-        className="chat-bubble text-white"
-        dangerouslySetInnerHTML={{ __html: info.replace(/\n/g, "<br/>") }}
-      />
+      <div className="chat-bubble text-white">
+        <MarkDown info={info} />
+      </div>
       <div className="chat-footer text-white opacity-80">
         Seen at {getNowTime()}
       </div>
