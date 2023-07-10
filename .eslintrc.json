@@ -2,6 +2,8 @@
   "extends": "next/core-web-vitals",
   "rules": { 
     "no-console": 1,
-    "no-unused-vars": 1
+    "no-unused-vars": 1,
+    "no-children-prop": 0,
+    "react/no-children-prop": 0
   }
 }
