@@ -13,9 +13,12 @@ export const chatApi = async (info: string) => {
     })
     .json();
 
-  const result = await res;
+  try {
+    const result = await res;
+    if (result.message !== "success") return;
 
-  if (result.message !== "success") return;
-
-  return result.data;
+    return result.data;
+  } catch (error) {
+    console.log("接口报错啦！！！");
+  }
 };

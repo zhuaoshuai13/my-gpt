@@ -1,8 +1,12 @@
 import { useCallback, useState } from "react";
+import { useDispatch } from "react-redux";
 
 import { ChatApi } from "@/services";
+import { exchange } from "@/store/modules/app/appSlice";
 
 const UseSendQuestion = (props: { getValue: Function }) => {
+  const dispatch = useDispatch();
+
   const [msgList, setMsgList] = useState<
     Array<{
       role: string;
@@ -11,17 +15,16 @@ const UseSendQuestion = (props: { getValue: Function }) => {
   >([]);
 
   const [info, setInfo] = useState("");
-  const [isLoading, setIsLoading] = useState(false);
 
   const handleSendQuestion = useCallback(async () => {
-    setIsLoading(true);
+    dispatch(exchange());
     if (info === "") return;
     const newMsgArray = [...msgList, { role: "user", content: info }];
     props.getValue(newMsgArray);
     setMsgList(newMsgArray);
     setInfo("");
     const res = await ChatApi.chatApi(info);
-    setIsLoading(false);
+    dispatch(exchange());
     if (res) {
       const backMsg = res.content;
       const newBackMsgArray = [
@@ -33,7 +36,7 @@ const UseSendQuestion = (props: { getValue: Function }) => {
       setMsgList(newBackMsgArray);
     } else {
     }
-  }, [info, msgList, props]);
+  }, [dispatch, info, msgList, props]);
 
   const handleInput = (e: any) => {
     const msg = e.target.value;
@@ -42,7 +45,6 @@ const UseSendQuestion = (props: { getValue: Function }) => {
 
   return {
     info,
-    isLoading,
     handleInput,
     handleSendQuestion,
   };

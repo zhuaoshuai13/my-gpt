@@ -1,9 +1,10 @@
 import { useRef, useState, useEffect } from "react";
+import { useSelector } from "react-redux";
 
 import { RightChatBox, LeftChatBox, InputBox } from "@/components";
 import UseContentBox from "@/hooks/useContentBox";
 
-// import LoadingSVG from "@/asset/loading.svg";
+import Loading from "@/components/loading/loading";
 
 const ContentBox = (prop: any) => {
   const scrollContainerRef = useRef(null);
@@ -11,9 +12,15 @@ const ContentBox = (prop: any) => {
   const [showHero, setShowHero] = useState(true);
   const [hideHero, setHideHero] = useState(false);
 
+  const loading = useSelector(
+    (state: { loadingReducer: { loading: boolean } }) =>
+      state.loadingReducer.loading
+  );
+
   useEffect(() => {
     if (localStorage.getItem("isEnter") === "true") {
       setShowHero(false);
+      setHideHero(true);
       prop.sideProp.current.setShowSidebar(true);
       prop.sideProp.current.setMenuBtn(true);
     }
@@ -73,17 +80,7 @@ const ContentBox = (prop: any) => {
                 <LeftChatBox info={item.content} key={index} />
               )
             )}
-            {/* <button
-              type="button"
-              className="... bg-indigo-500 p-[10px]"
-              disabled
-            >
-              <div>
-                <LoadingSVG className="-ml-1 mr-3 h-5 w-5 animate-spin text-white" />
-              </div>
-              <div className="text-white">稍等...</div>
-            </button> */}
-            {/* <LoadingSVG className="h-9 w-9 animate-spin text-white" /> */}
+            {loading && <Loading />}
           </div>
         )}
       </div>
