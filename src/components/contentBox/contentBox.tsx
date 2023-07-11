@@ -9,6 +9,8 @@ import Loading from "@/components/loading/loading";
 const ContentBox = (prop: any) => {
   const scrollContainerRef = useRef(null);
   const { msgList, handleChildValue } = UseContentBox(scrollContainerRef);
+
+  // const { msgGropuList, setMsgGropuList } = useState([]);
   const [showHero, setShowHero] = useState(true);
   const [hideHero, setHideHero] = useState(false);
 
@@ -35,6 +37,7 @@ const ContentBox = (prop: any) => {
       >
         Chat
       </div>
+
       <div
         className="scrollbar content flex-1 overflow-scroll scroll-smooth bg-base-200"
         ref={scrollContainerRef}
@@ -74,10 +77,12 @@ const ContentBox = (prop: any) => {
         {!showHero && (
           <div className="relative m-auto h-full w-4/5">
             {msgList.map((item, index) =>
-              item.role === "user" ? (
-                <RightChatBox info={item.content} key={index} />
-              ) : (
-                <LeftChatBox info={item.content} key={index} />
+              item.map((items) =>
+                items.role === "user" ? (
+                  <RightChatBox info={items.content} key={index} />
+                ) : (
+                  <LeftChatBox info={items.content} key={index} />
+                )
               )
             )}
             {loading && <Loading />}

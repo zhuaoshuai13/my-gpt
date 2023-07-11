@@ -14,6 +14,9 @@ const LeftChatBox = ({ info }: { info: string }) => {
       <div className="chat-header text-white opacity-80">Chat AI</div>
       <div className="chat-bubble text-white">
         <MarkDown info={info} />
+        {info == "接口请求超时" && (
+          <button className="btn-primary btn-sm btn mt-5">重新请求</button>
+        )}
       </div>
       <div className="chat-footer text-white opacity-80">
         Seen at {getNowTime()}

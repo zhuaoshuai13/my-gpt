@@ -20,5 +20,6 @@ export const chatApi = async (info: string) => {
     return result.data;
   } catch (error) {
     console.log("接口报错啦！！！");
+    return false;
   }
 };
