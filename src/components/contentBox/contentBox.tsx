@@ -8,7 +8,8 @@ import Loading from "@/components/loading/loading";
 
 const ContentBox = (prop: any) => {
   const scrollContainerRef = useRef(null);
-  const { msgList, handleChildValue } = UseContentBox(scrollContainerRef);
+  const { msgList, handleChildValue, fixedChildValue } =
+    UseContentBox(scrollContainerRef);
 
   // const { msgGropuList, setMsgGropuList } = useState([]);
   const [showHero, setShowHero] = useState(true);
@@ -79,9 +80,20 @@ const ContentBox = (prop: any) => {
             {msgList.map((item, index) =>
               item.map((items) =>
                 items.role === "user" ? (
-                  <RightChatBox info={items.content} key={index} />
+                  <RightChatBox
+                    info={items.content}
+                    target={items.target}
+                    key={index}
+                  />
                 ) : (
-                  <LeftChatBox info={items.content} key={index} />
+                  <LeftChatBox
+                    info={items.content}
+                    question={item[0].content}
+                    fixedChildValue={fixedChildValue}
+                    target={items.target}
+                    totalChat={msgList}
+                    key={index}
+                  />
                 )
               )
             )}

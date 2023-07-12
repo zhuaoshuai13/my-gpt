@@ -9,10 +9,14 @@ const scrollToBottom = (scrollContainerRef: MutableRefObject<null>) => {
 };
 const UseContentBox = (scrollContainerRef: MutableRefObject<null>) => {
   const [msgList, setMsgList] = useState<
-    Array<Array<{ role: string; content: string }>>
+    Array<Array<{ role: string; content: string; target: number }>>
   >([]);
 
   const handleChildValue = (value: []) => {
+    setMsgList([...value]);
+  };
+
+  const fixedChildValue = (value: []) => {
     setMsgList([...value]);
   };
 
@@ -20,7 +24,7 @@ const UseContentBox = (scrollContainerRef: MutableRefObject<null>) => {
     scrollToBottom(scrollContainerRef);
   }, [msgList, scrollContainerRef]);
 
-  return { msgList, handleChildValue };
+  return { msgList, handleChildValue, fixedChildValue };
 };
 
 export default UseContentBox;

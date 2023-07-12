@@ -2,7 +2,7 @@ import { getNowTime } from "@/utils/utils";
 
 import UserSvg from "@/asset/user.svg";
 
-const RightChatBox = ({ info }: { info: string }) => {
+const RightChatBox = ({ info, target }: { info: string; target: number }) => {
   return (
     <div className="chat chat-end animate-textFromRight">
       <div className="chat-image avatar bg-[#dd6a6a] p-[4px]">
