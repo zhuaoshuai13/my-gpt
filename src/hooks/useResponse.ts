@@ -26,6 +26,7 @@ const UseResponse = () => {
   useEffect(() => {
     handleResize();
     window.addEventListener("resize", handleResize, false);
+    return window.removeEventListener("resize", handleResize, false);
   }, [handleResize]);
   return { responsive };
 };
